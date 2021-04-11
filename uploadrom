@@ -1,0 +1,20 @@
+#!/bin/bash
+
+cd /tmp
+build_time=$(cat ~/.build_time)
+build_name=$(ls /tmp/out/target/product/sakura/ | grep -m1 -E 'sakura|.zip')
+
+# Push Compiled ROM if available
+if [ -f /tmp/out/target/product/sakura/${build_name} ]; then
+    rclone copy /tmp/out/target/product/sakura/$build_name gdrive:/CompiledROM/ -P
+    telegram -M "*AOSPA ROM Compile FINISHED.*
+    *Compile Time*: \`$((build_time / 3600))\` hour(s), \`$((build_time % 3600 / 60))\` minute(s) and \`$((build_time % 60))\` seconds.
+    *Download Link*: [$build_name](https://mirror.n00b-dev.workers.dev/0:/CompiledROM/$build_name)"
+else
+    telegram -M "*AOSPA ROM Compile FAILED!*
+    *Compile Time*: \`$((build_time / 3600))\` hour(s), \`$((build_time % 3600 / 60))\` minute(s) and \`$((build_time % 60))\` seconds."
+fi
+
+# Push CCache again if there's time
+tar --use-compress-program="pigz -k -1 " -cf derpccache.tar.gz ccache
+rclone copy derpccache.tar.gz remote:/ccache

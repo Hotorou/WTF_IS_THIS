@@ -1,0 +1,21 @@
+#!/bin/bash
+#
+cd /tmp
+
+# Init repo
+
+# Repo init and sync
+repo init --depth=1 --no-repo-verify -u git://github.com/DerpFest-11/manifest.git -b 11 -g default,-device,-mips,-darwin,-notdefault
+repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(nproc --all)
+
+# Haxxx xD
+echo "${git_cookies}" > ~/setup_cookies.sh
+bash ~/setup_cookies.sh
+
+# Notify In telegram
+telegram -M "*Recieved Compile Request* :- \`AOSPA ROM\`.
+*Compile started at*:- \`$(date)\`.
+Starting Repo sync.."
+
+# Start repo sync
+repo sync -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync -j$(cat /proc/cpuinfo | grep '^processor' | wc -l)
