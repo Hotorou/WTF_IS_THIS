@@ -1,20 +1,34 @@
 #!/bin/bash
-
-cd /tmp
+#
+cd $HOME
 build_time=$(cat ~/.build_time)
-build_name=$(ls /tmp/out/target/product/sakura/ | grep -m1 -E 'sakura|.zip')
+build_name=$(ls $HOME/out/target/product/daisy/ | grep -m1 -E 'daisy|.zip')
+ZIP=$(find $(pwd)/out/target/product/daisy/ -maxdepth 1 -name "*daisy*.zip" | perl -e 'print sort { length($b) <=> length($a) } <>' | head -n 1)
+ZIPNAME=$(basename ${ZIP})
+ZIPSIZE=$(du -sh ${ZIP} |  awk '{print $1}')
+
 
 # Push Compiled ROM if available
-if [ -f /tmp/out/target/product/sakura/${build_name} ]; then
-    rclone copy /tmp/out/target/product/sakura/$build_name gdrive:/CompiledROM/ -P
-    telegram -M "*AOSPA ROM Compile FINISHED.*
-    *Compile Time*: \`$((build_time / 3600))\` hour(s), \`$((build_time % 3600 / 60))\` minute(s) and \`$((build_time % 60))\` seconds.
-    *Download Link*: [$build_name](https://mirror.n00b-dev.workers.dev/0:/CompiledROM/$build_name)"
-else
-    telegram -M "*AOSPA ROM Compile FAILED!*
-    *Compile Time*: \`$((build_time / 3600))\` hour(s), \`$((build_time % 3600 / 60))\` minute(s) and \`$((build_time % 60))\` seconds."
-fi
+if [ -f $HOME/out/target/product/daisy/${build_name} ]; then
 
-# Push CCache again if there's time
-tar --use-compress-program="pigz -k -1 " -cf derpccache.tar.gz ccache
-rclone copy derpccache.tar.gz remote:/ccache
+rclone copy $HOME/out/target/product/daisy/$build_name remote:/noob/derpfest/ -P
+rclone copy $HOME/out/target/product/daisy/${ZIPNAME} remote:/noob/derpfest/ -P
+rclone copy $HOME/out/target/product/daisy/*.json remote:/noob/derpfest/ -P
+rclone copy $HOME/out/target/product/daisy/*.md5sum remote:/noob/derpfest/ -P
+
+telegram -M "*DERPFEST ROM Compile Status*: \`FINISHED!\`
+*Finished at*:- \`$(date)\`.
+*Compile Time*: \`$((build_time / 3600)) hour(s), $((build_time % 3600 / 60)) minute(s) and $((build_time % 60)) seconds\`.
+*Download Link*: [$build_name](https://noob-buildbot.zunayeddihan.workers.dev/0:/derpfest/$build_name)
+*CCache Stats*:-
+\`$(ccache -s | sed -n -e "6,9 p" -e "9 q")\`"
+
+else
+
+telegram -M "*DERPFEST ROM Compile Status*: \`FAILED!\`
+*Failed at*:- \`$(date)\`.
+*Compile Time*: \`$((build_time / 3600)) hour(s), $((build_time % 3600 / 60)) minute(s) and $((build_time % 60)) seconds\`.
+*CCache Stats*:-
+\`$(ccache -s | sed -n -e "6,9 p" -e "9 q")\`"
+
+fi

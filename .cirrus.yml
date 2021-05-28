@@ -1,16 +1,16 @@
 env:
-  rclone_config: "ENCRYPTED[8675d0e91a7e2edf18466b79cc62480611007b2e3f399533c3ab345d6b7af4a4e19f540fc94a5819b956f91bd6171518]"
-  git_cookies: "ENCRYPTED[8c608d26aa4cbd9a01356b82e1dc7ea3cd5e8435d4c4060026af46d00aa03edf26e5b806f0fb74089359be4339766a75]"
-  tg_auth: "ENCRYPTED[276ebfce4f46b6c13a64544c957971fb9956de32c50f2c1ab7d59b4c80b940eab43b3e3788d74c2b6c37e3a073697724]"
+  rclone_config: "ENCRYPTED[a6cf9923df82b942fd0861a9f8d5d69814a5bd701f18e08ffc74aa58195abbc390a8a99841e6c5b4cc8a3ca7ce5606ae]"
+  git_cookies: "ENCRYPTED[89bdabeefcf8861cffd45da07272ac5c2d19ff5e1a71500e0ddeb2645d6d6a872ebd734c7e232be7a9cce66cbf4c1cf7]"
+  tg_auth: "ENCRYPTED[db26d62a3a296d65335edd90f1a983bb232a5970c385728092f7a4d984cadf7641f8fbabc321bf9eb128e8960ac1176a]"
 
 container:
-  image: imzihad21/n00b-dev-android
+  image: fr3akyphantom/droid-builder
   cpu: 8
   memory: 32G
 
 task:
-    name: Rom Builder
-    timeout_in: 70m
+    name: Hyouka Builder
+    timeout_in: 120m
     ccachesync_background_script:
       - ./ccachesync
     syncsource_script:
