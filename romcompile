@@ -1,23 +1,22 @@
 #!/bin/bash
-cd /tmp
+cd $HOME
 
 # Notify In telegram
-telegram -M "*Repo Sync* :- \`Done\`.
-*Sync Finished at*:- \`$(date)\`.
-*SSH Connect ID*:- \`$(cat ~/.ssh_id)\`
-Starting ROM Build.."
+telegram -M "*Project Sakura Compile Status*: \`STARTED!\`.
+*Started at*:- \`$(date)\`."
 
 # Setup CCache
-export CCACHE_DIR=/tmp/ccache
-export CCACHE_EXEC=$(which ccache)
-export USE_CCACHE=1
-ccache -M 60G
-ccache -o compression=true
+ccache -M 10G
 ccache -z
 
-
-# Run final build
+# Run build process
 build_start=$(date +"%s")
-./rom-build.sh sakura
+#
+#
+source build/envsetup.sh
+lunch lineage_daisy-userdebug
+make bacon -j8
+#
+#
 build_end=$(date +"%s")
 echo "$((build_end - build_start))" > ~/.build_time
