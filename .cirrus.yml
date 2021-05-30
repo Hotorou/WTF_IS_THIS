@@ -1,7 +1,7 @@
 env:
   rclone_config: "ENCRYPTED[a6cf9923df82b942fd0861a9f8d5d69814a5bd701f18e08ffc74aa58195abbc390a8a99841e6c5b4cc8a3ca7ce5606ae]"
   git_cookies: "ENCRYPTED[89bdabeefcf8861cffd45da07272ac5c2d19ff5e1a71500e0ddeb2645d6d6a872ebd734c7e232be7a9cce66cbf4c1cf7]"
-  tg_auth: "ENCRYPTED[a24eb8229da13d90b998af3a6b049f49b51aee0bad69c4ef418769e2179f16ab9964f478d8aa893e3cf42607d6b90843]"
+  tg_auth: "ENCRYPTED[dc62dbffff13d63701c93bd33bd426d5e9fa6e1cb97bc1a0775268f4410a9d774359510d05bd8161504a75cef1b12613]"
 
 container:
   image: fr3akyphantom/droid-builder
@@ -13,8 +13,6 @@ task:
     timeout_in: 120m
     ccachesync_background_script:
       - ./ccachesync
-    ssh_background_script:
-      - ./tmate.sh
     syncsource_script:
       - ./syncsource
     romcompile_script:
