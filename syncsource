@@ -29,9 +29,9 @@ rm -rf device/generic/opengl-transport
 rm -rf hardware/qcom-caf/msm8996/display
 rm -rf hardware/qcom-caf/msm8996/media
 rm -rf hardware/qcom-caf/msm8996/audio
-git clone --depth=1 https://github.com/Jabiyeff-Project/android_hardware_qcom_display -b 11.0 hardware/qcom-caf/msm8996/display
-git clone --depth=1 https://github.com/Jabiyeff-Project/android_hardware_qcom_media -b 11.0 hardware/qcom-caf/msm8996/media
-git clone --depth=1 https://github.com/Jabiyeff-Project/android_hardware_qcom_audio -b 11.0 hardware/qcom-caf/msm8996/audio
+git clone --depth=1 https://github.com/DotOS/android_hardware_qcom_display -b dot11-caf-msm8996 hardware/qcom-caf/msm8996/display
+git clone --depth=1 https://github.com/DotOS/android_hardware_qcom_media -b dot11-caf-msm8996 hardware/qcom-caf/msm8996/media
+git clone --depth=1 https://github.com/DotOS/android_hardware_qcom_audio -b dot11-caf-msm8996 hardware/qcom-caf/msm8996/audio
 
 # Pull Device Sources
 git clone --depth=1 https://github.com/DerpFest-Devices/device_xiaomi_daisy -b 11 device/xiaomi/daisy
