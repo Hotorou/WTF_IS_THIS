@@ -29,12 +29,12 @@ rm -rf device/generic/opengl-transport
 rm -rf hardware/qcom-caf/msm8996/display
 rm -rf hardware/qcom-caf/msm8996/media
 rm -rf hardware/qcom-caf/msm8996/audio
-git clone --depth=1 https://github.com/DotOS/android_hardware_qcom_display -b dot11-caf-msm8996 hardware/qcom-caf/msm8996/display
-git clone --depth=1 https://github.com/DotOS/android_hardware_qcom_media -b dot11-caf-msm8996 hardware/qcom-caf/msm8996/media
-git clone --depth=1 https://github.com/DotOS/android_hardware_qcom_audio -b dot11-caf-msm8996 hardware/qcom-caf/msm8996/audio
+git clone --depth=1 https://github.com/SuperCosmicBeing/audio hardware/qcom-caf/msm8996-daisy/audio
+git clone --depth=1 https://github.com/SuperCosmicBeing/media hardware/qcom-caf/msm8996-daisy/media
+git clone --depth=1 https://github.com/SuperCosmicBeing/display hardware/qcom-caf/msm8996-daisy/display
 
 # Pull Device Sources
-git clone --depth=1 https://github.com/DerpFest-Devices/device_xiaomi_daisy -b 11 device/xiaomi/daisy
+git clone --depth=1 https://github.com/ZunayedDihan/device_xiaomi_daisy_work -b base device/xiaomi/daisy
 git clone --depth=1 https://github.com/ZunayedDihan/vendor_xiaomi_daisy_work -b lineage-18.1 vendor/xiaomi
 git clone --depth=1 https://github.com/lupesoltec/vendor_MiuiCamera.git -b daisy vendor/MiuiCamera
 git clone --depth=1 https://github.com/geopd/revvz_sakura kernel/xiaomi/msm8953
