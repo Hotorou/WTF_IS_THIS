@@ -28,5 +28,5 @@ telegram -M "*RR OS Compile Status*: \`DEVICE RESOURCE PULLING STARTED!\`.
 git clone --depth=1 https://github.com/ZunayedDihan/device_xiaomi_daisy_work.git -b rr device/xiaomi/daisy
 git clone --depth=1 https://github.com/ZunayedDihan/vendor_xiaomi_daisy_work -b rr vendor/xiaomi
 git clone --depth=1 https://github.com/lupesoltec/vendor_MiuiCamera.git -b daisy vendor/MiuiCamera
-git clone --depth=1 https://github.com/geopd/revvz_sakura kernel/xiaomi/msm8953
+git clone --depth=1 https://github.com/geopd/revvz_sakura kernel/xiaomi/daisy
 
