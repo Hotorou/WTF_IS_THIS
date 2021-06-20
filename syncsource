@@ -12,7 +12,7 @@ echo "${git_cookies}" > ~/git_hax.sh
 bash ~/git_hax.sh && rm ~/git_hax.sh
 
 # Repo init  and sync
-repo init -u git://github.com/DerpFest-11/manifest.git -b 11 --depth=1 --no-repo-verify -g default,-device,-mips,-darwin,-notdefault
+repo init -u git://github.com/DerpFest-11/manifest.git -b 11-launcher3 --depth=1 --no-repo-verify -g default,-device,-mips,-darwin,-notdefault
 
 # Start repo sync
 repo sync -c -j$(nproc --all) --force-sync --no-clone-bundle --no-tags
@@ -25,17 +25,9 @@ rm -rf vendor/gms
 git clone --depth=1 https://gitlab.com/ZunayedDihan/vendor_gms -b 11 vendor/gms
 rm -rf device/generic/opengl-transport
 
-# Hals
-#rm -rf hardware/qcom-caf/msm8996/display
-#rm -rf hardware/qcom-caf/msm8996/media
-#rm -rf hardware/qcom-caf/msm8996/audio
-#git clone --depth=1 https://github.com/SuperCosmicBeing/audio hardware/qcom-caf/msm8996-daisy/audio
-#git clone --depth=1 https://github.com/SuperCosmicBeing/media hardware/qcom-caf/msm8996-daisy/media
-#git clone --depth=1 https://github.com/SuperCosmicBeing/display hardware/qcom-caf/msm8996-daisy/display
-
 # Pull Device Sources
 git clone --depth=1 https://github.com/ZunayedDihan/device_xiaomi_daisy_work -b base device/xiaomi/daisy
-git clone --depth=1 https://github.com/ZunayedDihan/vendor_xiaomi_daisy_work -b lineage-18.1 vendor/xiaomi
+git clone --depth=1 https://github.com/ZunayedDihan/vendor_xiaomi_daisy_work -b 11R vendor/xiaomi
 git clone --depth=1 https://github.com/lupesoltec/vendor_MiuiCamera.git -b daisy vendor/MiuiCamera
-git clone --depth=1 https://github.com/geopd/revvz_sakura kernel/xiaomi/msm8953
+git clone --depth=1 https://github.com/PixelExperience-Devices/kernel_xiaomi_msm8953 -b eleven kernel/xiaomi/msm8953
 
