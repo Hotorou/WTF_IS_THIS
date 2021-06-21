@@ -27,7 +27,7 @@ rm -rf device/generic/opengl-transport
 
 # Pull Device Sources
 git clone --depth=1 https://github.com/ZunayedDihan/device_xiaomi_daisy_work -b base device/xiaomi/daisy
-git clone --depth=1 https://github.com/ZunayedDihan/vendor_xiaomi_daisy_work -b 11R vendor/xiaomi
+git clone --depth=1 https://github.com/ZunayedDihan/bleh_vendor-r -b lineage-r vendor/xiaomi/daisy
 git clone --depth=1 https://github.com/lupesoltec/vendor_MiuiCamera.git -b daisy vendor/MiuiCamera
 git clone --depth=1 https://github.com/PixelExperience-Devices/kernel_xiaomi_msm8953 -b eleven kernel/xiaomi/msm8953
 
