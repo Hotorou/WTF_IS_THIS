@@ -25,7 +25,7 @@ telegram -M "*Project Sakura Compile Status*: \`DEVICE RESOURCE PULLING STARTED!
 *Started at*:- \`$(date)\`."
 
 # Pull Device Sources
-git clone --depth=1 https://github.com/ZunayedDihan/device_xiaomi_daisy_work -b wip device/xiaomi/daisy
-git clone --depth=1 https://github.com/geopd/vendor_xiaomi_sakura -b lineage-18.1 vendor/xiaomi
+git clone --depth=1 https://github.com/ZunayedDihan/device_xiaomi_daisy_work -b base device/xiaomi/daisy
+git clone --depth=1 https://github.com/geopd/vendor_xiaomi_sakura -b 11R vendor/xiaomi/daisy
 git clone --depth=1 https://github.com/acras01/android_kernel_xiaomi_daisy kernel/xiaomi/msm8953
 
