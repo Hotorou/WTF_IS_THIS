@@ -12,20 +12,21 @@ echo "${git_cookies}" > ~/git_hax.sh
 bash ~/git_hax.sh && rm ~/git_hax.sh
 
 # Repo init and sync
-repo init -u git://github.com/DotOS/manifest.git -b dot11 --depth=1 --no-repo-verify -g default,-device,-mips,-darwin,-notdefault
+repo init -u https://github.com/AICP/platform_manifest.git -b r11.1 --depth=1 --no-repo-verify -g default,-device,-mips,-darwin,-notdefault
 
 # Start repo sync
-repo sync --current-branch --force-sync --no-clone-bundle --no-tags --optimized-fetch --prune -j `nproc`
+repo sync --no-tags --no-clone-bundle -j `nproc`
 
 # Purge repo
 rm -rf .repo
 
 # Notify In telegram
-telegram -M "*Project Sakura Compile Status*: \`DEVICE RESOURCE PULLING STARTED!\`.
+telegram -M "*AICP Compile Status*: \`DEVICE RESOURCE PULLING STARTED!\`.
 *Started at*:- \`$(date)\`."
 
 # Pull Device Sources
-git clone --depth=1 https://github.com/ZunayedDihan/device_xiaomi_daisy_work -b base device/xiaomi/daisy
-git clone --depth=1 https://github.com/geopd/vendor_xiaomi_sakura -b 11R vendor/xiaomi/daisy
-git clone --depth=1 https://github.com/acras01/android_kernel_xiaomi_daisy kernel/xiaomi/msm8953
+git clone --depth=1 https://github.com/Hotorou/device_xiaomi_daisy -b aicp device/xiaomi/daisy
+git clone --depth=1 https://github.com/Hotorou/vendor_xiaomi_daisy -b lineage-18.1 vendor/xiaomi/daisy
+git clone --depth=1 https://github.com/lupesoltec/vendor_MiuiCamera.git -b daisy vendor/MiuiCamera
+git clone --depth=1 https://github.com/acras01/android_kernel_xiaomi_daisy -b arrow-11.0 kernel/xiaomi/msm8953
 

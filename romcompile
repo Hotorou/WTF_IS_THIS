@@ -2,7 +2,7 @@
 cd $HOME
 
 # Notify In telegram
-telegram -M "*Dot OS Compile Status*: \`STARTED!\`.
+telegram -M "*AICP Compile Status*: \`STARTED!\`.
 *Started at*:- \`$(date)\`."
 
 # Setup CCache
@@ -14,8 +14,8 @@ build_start=$(date +"%s")
 #
 #
 source build/envsetup.sh
-lunch dot_daisy-userdebug
-make bacon -j8
+lunch aicp_daisy-userdebug
+time brunch daisy
 #
 #
 build_end=$(date +"%s")
