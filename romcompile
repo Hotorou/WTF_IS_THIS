@@ -15,7 +15,7 @@ build_start=$(date +"%s")
 #
 source build/envsetup.sh
 lunch aicp_daisy-userdebug
-mka bacon
+brunch daisy
 #
 #
 build_end=$(date +"%s")
