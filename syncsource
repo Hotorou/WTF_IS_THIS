@@ -18,7 +18,7 @@ repo init -u https://github.com/AICP/platform_manifest.git -b r11.1 --depth=1 --
 repo sync --no-tags --no-clone-bundle -j `nproc`
 
 # Purge repo
-rm -rf .repo
+#rm -rf .repo
 
 # Notify In telegram
 telegram -M "*AICP Compile Status*: \`DEVICE RESOURCE PULLING STARTED!\`.
