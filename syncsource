@@ -25,7 +25,6 @@ telegram -M "*AICP Compile Status*: \`DEVICE RESOURCE PULLING STARTED!\`.
 *Started at*:- \`$(date)\`."
 
 rm -rf device/generic/opengl-transport
-rm -rf vendor/aicp/tools/changelog
 
 # Pull Device Sources
 git clone --depth=1 https://github.com/Hotorou/device_xiaomi_daisy -b aicp device/xiaomi/daisy
