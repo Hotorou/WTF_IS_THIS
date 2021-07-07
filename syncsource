@@ -12,7 +12,7 @@ echo "${git_cookies}" > ~/git_hax.sh
 bash ~/git_hax.sh && rm ~/git_hax.sh
 
 # Repo init and sync
-repo init -u https://github.com/AICP/platform_manifest.git -b r11.1 --depth=1 --no-repo-verify -g default,-device,-mips,-darwin,-notdefault
+repo init -u https://github.com/AICP/platform_manifest.git -b r11.1 --no-repo-verify -g default,-device,-mips,-darwin,-notdefault
 
 # Start repo sync
 repo sync -j `nproc`
