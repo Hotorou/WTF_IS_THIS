@@ -1,5 +1,5 @@
 task:
-  name: nothing
+  name: rom
   timeout_in: 120m
   container:
     dockerfile: Dockerfile
