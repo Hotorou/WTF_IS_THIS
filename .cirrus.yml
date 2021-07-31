@@ -13,7 +13,7 @@ task:
     CHATID: "ENCRYPTED[3f6cf28d91392340afd0f8b95c1ea27c8a6e2b99e47e8254fb3bb5d8c6ce69f185b725a6f8513d99de29bf594c4ba856]"
     BOTTOKEN: "ENCRYPTED[cc4fa9cc9c5d3d99cd041cd6ab13b37eed5ebaf69c4e82ae9d30a1467e27299c88b2375ca29e2d34568892e38d15e42f]"
     TDRIVE: "ENCRYPTED[560e3ff0adba83bf158cf1462e82b8d94e1bbb068f932874806b17c7d7f6e97b2434caeded0040007fc998ad456a0007]"
-    rom: "aicp"
+    rom: "bootleg"
     T_DEVICE: "daisy"
   download_cc_background_script:
       - bash download_ccache.sh
