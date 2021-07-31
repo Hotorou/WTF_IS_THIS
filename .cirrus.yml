@@ -9,17 +9,17 @@ task:
     CIRRUS_WORKING_DIR: "/tmp/ci"
     rclone_config: "ENCRYPTED[a6cf9923df82b942fd0861a9f8d5d69814a5bd701f18e08ffc74aa58195abbc390a8a99841e6c5b4cc8a3ca7ce5606ae]"
     GIT_COOKIES: "ENCRYPTED[89bdabeefcf8861cffd45da07272ac5c2d19ff5e1a71500e0ddeb2645d6d6a872ebd734c7e232be7a9cce66cbf4c1cf7]"
-    TOKEN: "ENCRYPTED[a853c12e7aa489f384ac38bb9977a7ff9826c37215b0ab096cf58c7eb3c3895899d8c5cebf66e9ce045e1df63aa6a6bf]"
+    TOKEN: "ENCRYPTED[560e3ff0adba83bf158cf1462e82b8d94e1bbb068f932874806b17c7d7f6e97b2434caeded0040007fc998ad456a0007]"
     CHATID: "ENCRYPTED[3f6cf28d91392340afd0f8b95c1ea27c8a6e2b99e47e8254fb3bb5d8c6ce69f185b725a6f8513d99de29bf594c4ba856]"
     BOTTOKEN: "ENCRYPTED[cc4fa9cc9c5d3d99cd041cd6ab13b37eed5ebaf69c4e82ae9d30a1467e27299c88b2375ca29e2d34568892e38d15e42f]"
     TDRIVE: "ENCRYPTED[560e3ff0adba83bf158cf1462e82b8d94e1bbb068f932874806b17c7d7f6e97b2434caeded0040007fc998ad456a0007]"
-    rom: "derp"
+    rom: "aicp"
     T_DEVICE: "daisy"
-  download_ccache_background_script:
+  download_cc_background_script:
       - bash download_ccache.sh
-  upload_ccache_background_script:
+  upload_cc_background_script:
       - bash upload_ccache.sh
   build_script:
       - bash build.sh
-  final_upload_ccache_script:
+  final_upload_cc_script:
       - bash final_upload_ccache.sh
