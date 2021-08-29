@@ -7,8 +7,8 @@ cd /tmp/rom
 SYNC_START=$(date +"%s")
 
 
-git config --global user.name ZunayedDihan
-git config --global user.email zunayeddihan@gmail.com
+git config --global user.name hotorou
+git config --global user.email zunayeddihan2019@gmail.com
 
 
 # Git cookies
@@ -52,6 +52,13 @@ rom_four(){
      . build/envsetup.sh && lunch bootleg_daisy-userdebug && export SELINUX_IGNORE_NEVERALLOWS=true
 }
 
+rom_five(){
+     repo init --depth=1 --no-repo-verify -u https://github.com/PixelExperience/manifest -b eleven-plus -g default,-device,-mips,-darwin,-notdefault
+     git clone ${TOKEN}/local -b $rom .repo/local_manifests
+     repo sync --no-tags --no-clone-bundle -j$(nproc --all)
+     . build/envsetup.sh && lunch aosp_daisy-user
+}
+
 # setup TG message and build posts
 telegram_message() {
 	curl -s -X POST "https://api.telegram.org/bot${BOTTOKEN}/sendMessage" -d chat_id="${CHATID}" \
@@ -87,6 +94,8 @@ case "${rom}" in
  "xdroid") rom_three
     ;;
  "bootleg") rom_four
+    ;;
+ "pe") rom_five
     ;;
  *) echo "Invalid option!"
     exit 1
@@ -130,6 +139,8 @@ case "${rom}" in
  "xdroid") make xd -j18 2>&1 | tee build.log
     ;;
   "bootleg") make bacon -j18 2>&1 | tee build.log
+    ;;
+  "pe") mka bacon -j18 2>&1 | tee build.log
     ;;
  *) echo "Invalid option!"
     exit 1
