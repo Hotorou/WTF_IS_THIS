@@ -140,7 +140,7 @@ case "${rom}" in
     ;;
   "bootleg") make bacon -j18 2>&1 | tee build.log
     ;;
-  "pe") mka bacon -j18 2>&1 | tee build.log
+  "pe") make bacon -j18 2>&1 | tee build.log
     ;;
  *) echo "Invalid option!"
     exit 1
