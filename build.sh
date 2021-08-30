@@ -59,6 +59,13 @@ rom_five(){
      . build/envsetup.sh && lunch aosp_daisy-user
 }
 
+rom_six(){
+     repo init --depth=1 --no-repo-verify -u git://github.com/AospExtended/manifest.git -b 11.x -g default,-device,-mips,-darwin,-notdefault
+     git clone ${TOKEN}/local -b pe .repo/local_manifests
+     repo sync --no-tags --no-clone-bundle -j$(nproc --all)
+     . build/envsetup.sh && lunch aosp_daisy-user
+}
+
 # setup TG message and build posts
 telegram_message() {
 	curl -s -X POST "https://api.telegram.org/bot${BOTTOKEN}/sendMessage" -d chat_id="${CHATID}" \
@@ -96,6 +103,8 @@ case "${rom}" in
  "bootleg") rom_four
     ;;
  "pe") rom_five
+    ;;
+ "aex") rom_six
     ;;
  *) echo "Invalid option!"
     exit 1
@@ -141,6 +150,8 @@ case "${rom}" in
   "bootleg") make bacon -j18 2>&1 | tee build.log
     ;;
   "pe") make bacon -j18 2>&1 | tee build.log
+    ;;
+  "aex") m aex -j18 2>&1 | tee build.log
     ;;
  *) echo "Invalid option!"
     exit 1
