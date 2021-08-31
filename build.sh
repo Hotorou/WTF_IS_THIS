@@ -60,10 +60,10 @@ rom_five(){
 }
 
 rom_six(){
-     repo init --depth=1 --no-repo-verify -u git://github.com/AospExtended/manifest.git -b 11.x -g default,-device,-mips,-darwin,-notdefault
-     git clone ${TOKEN}/local -b pe .repo/local_manifests
+     repo init --depth=1 --no-repo-verify -u https://github.com/Colt-Enigma/platform_manifest -b c11 -g default,-device,-mips,-darwin,-notdefault
+     git clone ${TOKEN}/local -b $rom .repo/local_manifests
      repo sync --no-tags --no-clone-bundle -j$(nproc --all)
-     . build/envsetup.sh && lunch aosp_daisy-user
+     . build/envsetup.sh && lunch colt_daisy-user
 }
 
 # setup TG message and build posts
@@ -104,7 +104,7 @@ case "${rom}" in
     ;;
  "pe") rom_five
     ;;
- "aex") rom_six
+ "colt") rom_six
     ;;
  *) echo "Invalid option!"
     exit 1
@@ -151,7 +151,7 @@ case "${rom}" in
     ;;
   "pe") make bacon -j18 2>&1 | tee build.log
     ;;
-  "aex") m aex -j18 2>&1 | tee build.log
+  "colt") mka colt -j18 2>&1 | tee build.log
     ;;
  *) echo "Invalid option!"
     exit 1
