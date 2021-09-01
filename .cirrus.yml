@@ -13,7 +13,7 @@ task:
     CHATID: "ENCRYPTED[2e802b8c7c704e897da1d143f2215e00971dc3ffcd788e85da5f213ccb5c607d1a1471b9a9ddde02657e7487ad5d2999]"
     BOTTOKEN: "ENCRYPTED[5fca4870ca5fb75b706d0380f4395c11f24cb0c57e643a56c76ca23ac7b28490394344e4f09ff82e0514d7f75479ebbc]"
     TDRIVE: "ENCRYPTED[cb1acb2bf08145a0d1e52ca9d865693fd516009eecdff563567e00ca77ec4f39f37089eb4763b79c73d70b7c149e8e0b]"
-    rom: "aex"
+    rom: "colt"
     T_DEVICE: "daisy"
   download_cc_background_script:
       - bash download_ccache.sh
