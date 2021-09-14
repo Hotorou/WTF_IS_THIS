@@ -67,10 +67,10 @@ rom_six(){
 }
 
 rom_seven(){
-     repo init --depth=1 --no-repo-verify -u git://github.com/AospExtended/manifest.git -b 11.x -g default,-device,-mips,-darwin,-notdefault
-     git clone ${TOKEN}/local -b pe .repo/local_manifests
-     repo sync --no-tags --no-clone-bundle -j$(nproc --all)
-     . build/envsetup.sh && lunch aosp_daisy-user
+     repo init --depth=1 --no-repo-verify -u git://github.com/DotOS/manifest.git -b dot11 -g default,-device,-mips,-darwin,-notdefault
+     git clone ${TOKEN}/local -b $rom .repo/local_manifests
+     repo sync -c --no-clone-bundle --no-tags --optimized-fetch --force-sync -j$(nproc --all)
+     . build/envsetup.sh && lunch dot_daisy-user
 }
 
 # setup TG message and build posts
@@ -113,7 +113,7 @@ case "${rom}" in
     ;;
  "colt") rom_six
     ;;
- "aex") rom_seven
+ "dot") rom_seven
     ;;
  *) echo "Invalid option!"
     exit 1
@@ -162,7 +162,7 @@ case "${rom}" in
     ;;
   "colt") mka colt -j18 2>&1 | tee build.log
     ;;
-  "aex") m aex -j18 2>&1 | tee build.log
+  "dot") make bacon -j18 2>&1 | tee build.log
     ;;
  *) echo "Invalid option!"
     exit 1
